@@ -3,26 +3,39 @@ let rememberMe = false;
 /**
  * This function gets the input of Login and search with the Values, in the users Array.
  */
-function login() {
-    let email = document.getElementById("login-email");
-    let password = document.getElementById("login-password");
-    rememberMe = document.getElementById("remember-me").checked;
-    let existingUser = users.find(user => user.email === email.value && user.password === password.value);
-    localStorage.setItem('alreadyGreetMobile', alreadyGreetMobile);
+async function login() {
+    let email = document.getElementById("login-email").value;
+    let password = document.getElementById("login-password").value;
+    //rememberMe = document.getElementById("remember-me").checked;
+   
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
 
-    if (existingUser) {
-        if (rememberMe) {
-            saveUserToLocalStorage(email, password, rememberMe);
-        } else {
-            localStorage.setItem("rememberLogin", rememberMe);
-            localStorage.clear();
+    const raw = JSON.stringify({
+      "username": email,
+      "password": password
+    });
+
+    const requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+
+    try {
+        let resp = await fetch("http://127.0.0.1:8000/login/", requestOptions);
+        let json = await resp.json();
+        const token = json.token;
+
+        if (token) {
+            localStorage.setItem('token', token);
+            window.location.href = "./summary.html";
         }
-        goToSummaryAfterTimeout();
-        localStorage.setItem('currentUser', existingUser.name);
-    } else {
-        showEmailAlreadyInUse(email, password);
+    } catch(e){
+      console.error(e);
     }
-}
+  }
 
 
 /**
@@ -42,12 +55,12 @@ function saveUserToLocalStorage(email, password, rememberMe) {
 /**
  * This function moves the User to Summary.html,
  * after Timout.
- */
 function goToSummaryAfterTimeout() {
     setTimeout(function () {
         window.location.href = "./summary.html";
     }, 1000);
 }
+ */
 
 
 /**

@@ -18,7 +18,7 @@ let normalTemplateOpen = false;
  * The function plays the loadBackend() and includeHTML() functions.
  */
 async function load() {
-    await loadBackend();
+    //await loadBackend();
     await includeHTML();
     checkURLandHighlight();
     setFaviconColorTheme();
@@ -30,7 +30,7 @@ async function load() {
 
 /**
  * The function loads all Data that is currently saved at the backend database.
- */
+ 
 async function loadBackend() {
     await downloadFromServer();
     todos = JSON.parse(backend.getItem('todo')) || [];
@@ -39,7 +39,7 @@ async function loadBackend() {
     assignments = JSON.parse(backend.getItem('assignments')) || [];
     existingUser = backend.getItem('currentUser') || [];
     users = JSON.parse(backend.getItem("users")) || [];
-}
+}*/
 
 
 /**

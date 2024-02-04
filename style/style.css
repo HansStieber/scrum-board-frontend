@@ -90,7 +90,7 @@ body {
     margin-bottom: 40px;
 }
 
-#login-email {
+#login-username {
     background: url("../assets/img/mail-icon.svg") no-repeat 310px;
 }
 
@@ -116,21 +116,6 @@ body {
     display: flex;
     margin-bottom: 25px;
     align-items: flex-end;
-}
-
-.remember_me {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-}
-
-.remember-me,
-input {
-    margin-right: 20px;
-}
-
-.remember-me-checkbox {
-    margin-right: 10px;
 }
 
 .fade-in-login {
@@ -346,13 +331,6 @@ input {
     margin-bottom: 8px;
 }
 
-/*@media (max-width: 800px) {
-    .help-container::before {
-        content: "Kanban Project Management Tool";
-        font-size: 21px;
-    }
-}*/
-
 @media (max-width: 450px) {
     .help-container {
         margin-right: 10px;
@@ -394,10 +372,6 @@ input {
     .remember_me_forgotten a {
         margin-top: 15px;
         color: #007CEE;
-    }
-
-    .remember_me {
-        margin-top: 15px;
     }
 
     .signup {
@@ -469,22 +443,9 @@ input {
         font-size: 12px;
     }
 
-    .remember_me_forgotten {
-        display: flex;
-        margin-bottom: 25px;
-        align-items: flex-start;
-        flex-direction: column-reverse;
-        margin-left: -115px;
-
-    }
-
     .signup {
         margin-left: 23px;
         bottom: -3px;
-    }
-
-    .remember_me {
-        margin-top: 15px;
     }
 
     .password_forgotten {

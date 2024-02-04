@@ -4,7 +4,7 @@ let rememberMe = false;
  * This function gets the input of Login and search with the Values, in the users Array.
  */
 async function login() {
-    let email = document.getElementById("login-email").value;
+    let username = document.getElementById("login-username").value;
     let password = document.getElementById("login-password").value;
     //rememberMe = document.getElementById("remember-me").checked;
    
@@ -12,7 +12,7 @@ async function login() {
     myHeaders.append("Content-Type", "application/json");
 
     const raw = JSON.stringify({
-      "username": email,
+      "username": username,
       "password": password
     });
 
